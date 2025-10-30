@@ -48,6 +48,6 @@ jobs:
           distribution: 'temurin'
       - name: Run integration tests
         run: >-
-            ./gradlew assembleDebug
+            ./gradlew assembleDebug -Porg.gradle.java.installations.auto-download=false
         env:
           DEVELOCITY_ACCESS_KEY : ${{ secrets.ACCESS_KEY }}
