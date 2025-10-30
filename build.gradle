@@ -3,6 +3,7 @@
                     repositories {
                         google()
                         mavenCentral()
+                        gradlePluginPortal()
                         maven {
                             url = "file:///Users/inakivillar/androidcacheplugin/android-cache-fix-gradle-plugin/build/local-repo/"
                         }
@@ -10,7 +11,7 @@
                     dependencies {
                         classpath ('com.android.tools.build:gradle') { version { strictly '9.0.0-alpha13' } }
                         
-classpath "org.gradle.android:android-cache-fix-gradle-plugin:3.0.3"
+classpath "org.gradle.android:android-cache-fix-gradle-plugin:3.0.2"
 
                         
 classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.0"
