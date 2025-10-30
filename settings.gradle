@@ -1,0 +1,36 @@
+
+                import org.gradle.util.GradleVersion
+                pluginManagement {
+                    repositories {
+                        mavenCentral()
+                        gradlePluginPortal()
+                        google()
+                        maven {
+                            url = "file:///Users/inakivillar/androidcacheplugin/android-cache-fix-gradle-plugin/build/local-repo/"
+                        }
+                    }
+                }
+                plugins {
+                    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.4.0' apply false
+                    id("com.gradle.develocity") version "4.2.2"
+                }
+
+                if (GradleVersion.current() >= GradleVersion.version('7.6')) {
+                    apply plugin: 'org.gradle.toolchains.foojay-resolver-convention'
+                }
+                develocity {
+    server = "https://ge.solutions-team.gradle.com"
+    buildScan {
+        publishing.onlyIf { true }
+
+    }
+}
+
+                buildCache {
+                    local {
+                        directory = "/var/folders/3v/7sybtn4x7jv9vldqyn2qf9840000gn/T/junit5428595657700500074/junit13494327294919610186"
+                    }
+                }
+            
+include ':app'
+include ':library'

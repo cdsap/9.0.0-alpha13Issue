@@ -1,0 +1,56 @@
+
+        apply plugin: "com.android.application"
+
+        apply plugin: "org.gradle.android.cache-fix"
+
+        repositories {
+            google()
+            mavenCentral()
+        }
+
+        dependencies {
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+        }
+
+        android {
+            namespace "org.gradle.android.example.app"
+            ndkVersion "20.0.5594570"
+            compileSdkVersion 35
+            dataBinding.enabled = true
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_17
+            targetCompatibility JavaVersion.VERSION_17
+        }
+
+            defaultConfig {
+                minSdkVersion 28
+                targetSdkVersion 35
+
+                lintOptions {
+                    checkReleaseBuilds false
+                }
+            }
+        }
+
+
+        java {
+            toolchain {
+                languageVersion.set(JavaLanguageVersion.of(17))
+            }
+        }
+
+
+    android.defaultConfig.applicationId "org.gradle.android.test.app"
+
+    dependencies {
+        implementation 'joda-time:joda-time:2.7'
+        testImplementation 'junit:junit:4.13.2'
+    }
+
+dependencies {
+    implementation project(':library')
+    testImplementation 'junit:junit:4.13.2'
+}
